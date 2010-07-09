@@ -32,6 +32,13 @@ describe "Prawn::Table" do
       }.should.not.raise
     end   
 
+    it "should allow fields containing only spaces" do
+      lambda {
+        data = [[" ","bar"],["baz","   "]]
+        @pdf.table(data)
+      }.should.not.raise
+    end
+
     # TODO: pending colspan
     xit "should accurately count columns from data" do
       # First data row may contain colspan which would hide true column count
